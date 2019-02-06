@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+    <meta http-equiv="refresh" content="30">  
+    <title>{% block title %}{% endblock %} - Lucy</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    {% endblock %}
+</head>
+<body>      
+    {% block content %}{% endblock %}
+</body>
+</html>
