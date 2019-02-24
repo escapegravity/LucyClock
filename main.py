@@ -7,8 +7,13 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     now = datetime.now()
-    morningShift = now.replace(minute=30, hour=7, second=00)
-    nightShift = now.replace(minute=30, hour=19, second=00)
+    
+    if now.today().weekday() > 4:
+        morningShift = now.replace(hour=7, minute=30, second=00)
+    else:
+        morningShift = now.replace(hour=7, minute=00, second=00)
+
+    nightShift = now.replace(hour=20, minute=00, second=00)
      
     if now < morningShift or now > nightShift:
         template = 'night.html'
